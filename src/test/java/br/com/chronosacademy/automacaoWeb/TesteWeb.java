@@ -20,15 +20,13 @@ public class TesteWeb {
     public void inicializaTeste(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
         driver.manage().window().maximize();
-
         driver.get("https://chronosacademy.com.br");
     }
 
     @Test
     public void primeiroTeste(){
-        String xpathTitulo = "/html/body/div/div/div/div/div/section[2]/div[3]/div/div/div/div/div[1]/div/h4";
+        String xpathTitulo = "//section[2]//h4";
         WebElement txtTitulo = driver.findElement(By.xpath(xpathTitulo));
         String titulo = txtTitulo.getText();
         assertEquals("Porque Tempo É Conhecimento", titulo);
@@ -36,14 +34,11 @@ public class TesteWeb {
 
     @Test
     public void segundoTeste(){
-        String xpathBotao = "/html/body/div/div/div/div/div/section[2]/div[3]/div/div/div/div/div[2]/div/div/a";
+        String xpathBotao = "//section[2]//div[3]//a";
         WebElement btnTitulo = driver.findElement(By.xpath(xpathBotao));
-
         btnTitulo.click();
-
-        String xpathTitulo = "/html/body/div/div/div/div/section[2]/div/div/div/div/div/section/div/div/div/div/div/div/div/h2";
+        String xpathTitulo = "//section[2]//h2";
         WebElement h2Titulo = driver.findElement(By.xpath(xpathTitulo));
-
         assertEquals("AUTOMAÇÃO SEM COMPLICAÇÃO WEB 2.0", h2Titulo.getText());
 
     }
