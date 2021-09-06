@@ -26,15 +26,19 @@ public class LoginSteps {
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
     }
+
     @Quando("for realizado um clique fora da modal")
     public void forRealizadoUmCliqueForaDaModal() {
         loginPage.clickDivFecharModal();
     }
 
     @Entao("a janela modal deve ser fechada")
-    public void aJanelaModalDeveSerFechada() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void aJanelaModalDeveSerFechada() throws Exception {
+        try{
+            loginPage.invisibilityOfBtnFechar();
+        } catch (Exception e){
+            throw new Exception("A janela modal não foi fechada");
+        }
     }
 
     @Quando("for realizado um clique no ícone de fechar da modal")
@@ -45,12 +49,10 @@ public class LoginSteps {
     @Quando("for realizado um clique no link Create New Account")
     public void forRealizadoUmCliqueNoLinkCreateNewAccount() {
         loginPage.clickLinkCreateAccount();
-        
     }
 
     @Entao("a pagina Create Account deve ser exibida")
     public void aPaginaCreateAccountDeveSerExibida() {
-        
     }
 
     @Quando("os campos de login sejam preenchidos da seguinte forma")
@@ -67,12 +69,10 @@ public class LoginSteps {
     @Quando("for realizado o clique no botao sign in")
     public void forRealizadoOCliqueNoBotaoSignIn() {
         loginPage.clickBtnSignIn();
-        
     }
 
     @Entao("deve ser possivel logar no sistema")
     public void deveSerPossivelLogarNoSistema() {
-        
     }
 
     @Entao("o sistema devera exibir uma mensagem de erro")
