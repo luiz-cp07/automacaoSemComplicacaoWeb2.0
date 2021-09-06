@@ -12,7 +12,16 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), loginMap);
     }
 
+    public void visibilityBtnFechar(){
+        Driver.visibilityOf(loginMap.btnFechar);
+    }
+
+    public void invisibilityOfBtnFechar(){
+        Driver.invisibilityOf(loginMap.btnFechar);
+    }
+
     public void clickBtnLogin(){
+        Driver.visibilityOf(loginMap.btnLogin);
         loginMap.btnLogin.click();
     }
 
