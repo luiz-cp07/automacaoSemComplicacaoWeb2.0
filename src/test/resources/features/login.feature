@@ -16,39 +16,40 @@ Funcionalidade: Login
     Quando for realizado um clique no link Create New Account
     Entao a pagina Create Account deve ser exibida
 
-  Esquema do Cenario: Realizar login com <identificacao>
+  @loginComSucesso
+  Esquema do Cenário: Realizar login com <identificacao>
     Quando os campos de login sejam preenchidos da seguinte forma
-      |login |<login> |
-      |password |<password> |
-      |remember |<remember> |
+      | usuario  | <usuario>  |
+      | senha    | <senha>    |
+      | remember | <remember> |
     Quando for realizado o clique no botao sign in
     Entao deve ser possivel logar no sistema
     Exemplos:
-      |identificacao |login |password |remember |
-      |campos obrigatorios |chronos |senha |false |
-      |todos os campos     |chronos |senha |true  |
-
+      | identificacao       | usuario     | senha      | remember |
+      | campos obrigatorios | chronosluiz | Chronos123 | false    |
+      | todos os campos     | chronosluiz | Chronos123 | true     |
+  @loginInvalido
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login sejam preenchidos da seguinte forma
-      |login |<login> |
-      |password |<password> |
-      |remember |<remember> |
+      | usuario  | <usuario>  |
+      | senha    | <senha>    |
+      | remember | <remember> |
     Quando for realizado o clique no botao sign in
     Entao o sistema devera exibir uma mensagem de erro
     Exemplos:
-      |identificacao |login |password |remember |
-      |usuario invalido |invalido |senha |false |
-      |senha invalida   |chronos  |invalida |false |
+      | identificacao    | usuario      | senha      | remember |
+      | usuario invalido | invalido     | Chronos123 | false    |
+      | senha invalida   | chronosluiz  | invalida   | false    |
   @dadosEmBranco
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login sejam preenchidos da seguinte forma
-      |login |<login> |
-      |password |<password>|
-      |remember |<remember>|
+      | usuario  | <usuario>  |
+      | senha    | <senha>    |
+      | remember | <remember> |
     Entao o botao sign in deve permanecer desabilitado
     Exemplos:
-      |identificacao |login |password |remember |
-      |usuario em branco |  |senha    |false    |
-      |senha em branco   |chronos |   |false    |
+      | identificacao     | usuario     | senha      | remember |
+      | usuario em branco |             | Chronos123 | false    |
+      | senha em branco   | chronosluiz |            | false    |
 
 

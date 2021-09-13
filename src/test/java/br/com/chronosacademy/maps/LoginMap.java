@@ -10,16 +10,20 @@ public class LoginMap {
     public WebElement btnFechar;
     @FindBy(css = ".PopUp")
     public WebElement divFechaModal;
-    @FindBy(xpath = "*[name=username]")
+    @FindBy(css = "[name='username']")
     public WebElement inpUserName;
-    @FindBy(xpath = "*[name=password]")
+    @FindBy(css = "[name=password]")
     public WebElement inpPassword;
     @FindBy(css = "#sign_in_btnundefined")
     public WebElement btnSignIn;
-    @FindBy(xpath = "*[name=remember_me]")
+    @FindBy(css = "[name=remember_me]")
     public WebElement inpRemember;
     @FindBy(linkText = "CREATE NEW ACCOUNT")
     public WebElement linkCreateAccount;
     @FindBy(css = ".loader")
     public WebElement divLoader;
+    @FindBy(css = ".containMiniTitle")
+    public WebElement textLogado;
+    @FindBy(xpath = "//label[contains(text(), 'Incorrect')]")
+    public WebElement textErroLogin;
 }
