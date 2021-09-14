@@ -31,14 +31,12 @@ public class TesteWeb {
         principalPage = new PrincipalPage(driver);
     }
 
-    @Test
     public void primeiroTeste(){
         String titulo = principalPage.getTitulo();
 
         assertEquals("Porque Tempo É Conhecimento", titulo);
     }
 
-    @Test
     public void segundoTeste(){
         principalPage.clickBotao();
         cursoPage = new CursoPage(driver);
