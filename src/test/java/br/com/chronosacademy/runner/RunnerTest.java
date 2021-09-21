@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
             glue = "br.com.chronosacademy.steps",
             plugin = {"json:target/reports/CucumberReports.json", "pretty"},
             snippets = CucumberOptions.SnippetType.CAMELCASE
+
+
 )
 public class RunnerTest {
 
