@@ -61,7 +61,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>${project.name} - System Testing Execution Report</projectName>
+                            <projectName>automacaoSemComplicacaoWeb2.0</projectName>
                             <outputDirectory>${project.build.directory}/reports</outputDirectory>
                             <jsonFiles>
                                 <param>${project.build.directory}/reports/CucumberReports.json</param>
