@@ -7,6 +7,7 @@ import br.com.chronosacademy.maps.NewAccountPage;
 import br.com.chronosacademy.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -21,8 +22,10 @@ public class LoginSteps {
     String username;
 
     @Before
-    public void iniciaNavegador(){
+    public void iniciaNavegador(Scenario cenario){
         new Driver(Browser.CHROME);
+        Driver.setNomeCenario(cenario.getName());
+        Driver.criaDiretorio();
     }
 
     @Dado("que a modal esteja sendo exibida")
@@ -74,6 +77,7 @@ public class LoginSteps {
         loginPage.setInpUserName(username);
         loginPage.setInpPassword(password);
         if(remember)loginPage.clickInpRemember();
+
     }
 
     @Quando("for realizado o clique no botao sign in")
@@ -98,7 +102,9 @@ public class LoginSteps {
     }
 
     @After
-    public void fechaNavegador(){
+    public void fechaNavegador(Scenario cenario){
         Driver.getDriver().quit();
+        System.out.println(Driver.getNomeCenario()+" - " +cenario.getStatus());
+        System.out.println(cenario.isFailed());
     }
 }
