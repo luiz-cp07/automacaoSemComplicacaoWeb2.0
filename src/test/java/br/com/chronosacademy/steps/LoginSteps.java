@@ -14,6 +14,7 @@ import io.cucumber.java.pt.Quando;
 import org.apache.hc.core5.pool.ManagedConnPool;
 import org.junit.Assert;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class LoginSteps {
@@ -69,7 +70,7 @@ public class LoginSteps {
     }
 
     @Quando("os campos de login sejam preenchidos da seguinte forma")
-    public void osCamposDeLoginSejamPreenchidosDaSeguinteForma(Map<String, String> map) {
+    public void osCamposDeLoginSejamPreenchidosDaSeguinteForma(Map<String, String> map) throws IOException {
         username = map.get("usuario");
         String password = map.get("senha");
         boolean remember = Boolean.parseBoolean(map.get("remember"));
@@ -77,6 +78,8 @@ public class LoginSteps {
         loginPage.setInpUserName(username);
         loginPage.setInpPassword(password);
         if(remember)loginPage.clickInpRemember();
+
+        Driver.printScreen("preenchimento dos campos de login");
 
     }
 
@@ -86,8 +89,9 @@ public class LoginSteps {
     }
 
     @Entao("deve ser possivel logar no sistema")
-    public void deveSerPossivelLogarNoSistema() {
+    public void deveSerPossivelLogarNoSistema() throws IOException {
         Assert.assertEquals("chronosluiz", loginPage.getUsuarioLogado());
+        Driver.printScreen("logado no sistema");
     }
 
     @Entao("o sistema devera exibir uma mensagem de erro")
@@ -102,9 +106,10 @@ public class LoginSteps {
     }
 
     @After
-    public void fechaNavegador(Scenario cenario){
+    public void fechaNavegador(Scenario cenario) throws IOException {
+        if (cenario.isFailed()){
+            Driver.printScreen("erro no cenario");
+        }
         Driver.getDriver().quit();
-        System.out.println(Driver.getNomeCenario()+" - " +cenario.getStatus());
-        System.out.println(cenario.isFailed());
     }
 }
