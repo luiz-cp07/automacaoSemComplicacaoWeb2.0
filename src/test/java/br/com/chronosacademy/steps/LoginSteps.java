@@ -2,8 +2,7 @@ package br.com.chronosacademy.steps;
 
 import br.com.chronosacademy.core.Driver;
 import br.com.chronosacademy.enums.Browser;
-import br.com.chronosacademy.maps.NewAccountMap;
-import br.com.chronosacademy.maps.NewAccountPage;
+import br.com.chronosacademy.pages.NewAccountPage;
 import br.com.chronosacademy.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -11,7 +10,6 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
-import org.apache.hc.core5.pool.ManagedConnPool;
 import org.junit.Assert;
 
 import java.io.IOException;
